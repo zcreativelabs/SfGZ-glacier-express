@@ -52,8 +52,8 @@ const routeStops = [
   {...}
 ]
 
-const routeStopsCoordinates = routeStops.map(function(d) {
-  return d.coordinates
+const routeStopsCoordinates = routeStops.map(function(routeStop) {
+  return routeStop.coordinates
 })
 
 console.log(routeStopsCoordinates) // [ [7.747727, 46.024393], [7.774707, 46.067162] ]
@@ -74,7 +74,7 @@ const lineData = {
   type: "Feature",
   geometry: {
     type: "LineString",
-    coordinates: routeStops.map(function(d) { return d.coordinates }),
+    coordinates: routeStops.map(function(routeStop) { return routeStop.coordinates }),
   },
 }
 
@@ -101,7 +101,7 @@ Wenn dir diese Aufgabe zu einfach ist, kanns du bereits versuchen die Linie zu a
 #### 1. Finde die Länge der Linie mithilfe vom Pfadgenerator
 
 ```js
-const pathLength = pathGenerator.measure(route)
+const pathLength = pathGenerator.measure(lineData)
 ```
 
 #### 2. Mache deine Linie 'unsichtbar'
